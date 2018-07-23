@@ -2,13 +2,13 @@ A simple python application download YouTube videos. Downloading as audio does n
 
 To install: 
   1. Clone repository 
-     $ git clone https://github.com/Rjmiller1/ContentDownloader
+     - $ git clone https://github.com/Rjmiller1/ContentDownloader
   2. Install dependencies 
-     $ pip install bs4
-     $ pip install progressbar
-     $ pip install pytube
-     $ pip install routes
+     - $ pip install bs4
+     - $ pip install progressbar
+     - $ pip install pytube
+     - $ pip install routes
   3. Run
-    $ python main.py
+     - $ python main.py
      
      
