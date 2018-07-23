@@ -1,4 +1,5 @@
 from pytube import YouTube
+import progressbar
 
 def downloadVideo(url):
 	link = YouTube(url)
@@ -11,3 +12,4 @@ def downloadAudio(url):
 	download_audio = link.streams.filter(only_audio=True).first()
 	print('Download Started!')
 	return download_audio.download('audio/')
+
