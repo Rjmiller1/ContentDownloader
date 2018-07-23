@@ -21,22 +21,16 @@ print(result)
 # a csv file and/or array
 
 def getPlaylist(url):
-	sourceCode = requests.get(url).text
-	soup = BeautifulSoup(sourceCode, 'html.parser')
-	domain = 'https://wwww.youtube.com'
-	for link in soup.find_all("a", {"dir": "1tr"}):
-		href = link.get('href')
-		if href.startswith('/watch?'):
-			print(link.string.strip())
-			print(domain + href + '\n')
+    sourceCode = requests.get(url).text
+    soup = BeautifulSoup(sourceCode, 'html.parser')
+    domain = 'https://www.youtube.com'
+    result = ''
+    for link in soup.find_all("a", {"dir": "ltr"}):
+        href = link.get('href')
+        if href.startswith('/watch?'):
+            # print(link.string.strip())
+            result += domain + href + '\n'
+    return result
 
-def getPlaylist2(url):
-	pageElements = urlopen(url).readlines()
-	vidElements = [el for el in pageElements if 'pl-video-title-link' in el]
-	for v in  vidElements:
-		vidUrls = v.split('href="',1)[1].split('" ',1)[0]
-	return ['http://www.youtube.com' + v for v in vidUrls]
-
-
-result = getPlaylist3("https://www.youtube.com/playlist?list=PLH22-xSMERQpxPaba5cAkc60zWa3AnPKV")
+result = getPlaylist("https://www.youtube.com/playlist?list=PLH22-xSMERQpxPaba5cAkc60zWa3AnPKV")
 print(result)
